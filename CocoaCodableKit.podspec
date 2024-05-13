@@ -23,7 +23,7 @@ Pod::Spec.new do |spec|
 
   spec.preserve_paths = "Binary/CodableKitMacros", "CodableKit"
 
-  sepc.prepare_command = <<-CMD
+  spec.prepare_command = <<-CMD
   cd CodableKit
   git submodule update --init --recursive
   echo 'Script to update the submodule to the latest tag'
