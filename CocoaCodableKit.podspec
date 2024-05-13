@@ -3,10 +3,10 @@ Pod::Spec.new do |spec|
 
   spec.name         = "CocoaCodableKit"
   spec.version      = "0.0.2"
-  spec.summary      = "A short description of CodableKit."
+  spec.summary      = "A CocoaPods compatible version of CodableKit."
 
   spec.description  = <<-DESC
-  A long description of CodableKit.
+  A CocoaPods compatible version of CodableKit.
                    DESC
 
   spec.homepage     = "https://github.com/WendellXY/CocoaCodableKit"
