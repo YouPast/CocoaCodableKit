@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "CocoaCodableKit"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "A short description of CodableKit."
 
   spec.description  = <<-DESC
@@ -21,12 +21,21 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "Define/**/*"
 
-  spec.preserve_paths = "Binary/CodableKitMacros"
+  spec.preserve_paths = "Binary/CodableKitMacros", "CodableKit"
+
+  sepc.prepare_command = <<-CMD
+  cd CodableKit
+  git submodule update --init --recursive
+  echo 'Script to update the submodule to the latest tag'
+  git fetch --tags
+  git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+  sh build_binary.sh
+  CMD
 
   xcconfig = {
     'OTHER_SWIFT_FLAGS' => [
       '-load-plugin-executable',
-      '${PODS_ROOT}/CocoaCodableKit/Binary/CodableKitMacros#CodableKitMacros'
+      '${PODS_ROOT}/CocoaCodableKit/CodableKit/.build/release/CodableKitMacros#CodableKitMacros'
     ]
   }
   spec.user_target_xcconfig = xcconfig

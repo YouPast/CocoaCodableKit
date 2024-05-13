@@ -1,0 +1,3 @@
+[submodule "CodableKit"]
+	path = CodableKit
+	url = https://github.com/WendellXY/CodableKit
